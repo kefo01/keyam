@@ -2,8 +2,8 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
-  latitude: 59.2783646
-  longitude: 18.1058604
+  latitude: !secret lat
+  longitude: !secret long
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 11
   # metric for Metric, imperial for Imperial
@@ -11,31 +11,22 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Stockholm
 
-# Show links to resources in log and frontend
-#introduction:
+
 
 # Enables the frontend
 frontend:
 
 http:
-  # Uncomment this to add a password (recommended!)
   api_password: !secret http_pass
-  # Uncomment this if you are using SSL or running in Docker etc
-  base_url: kerry.duckdns.org:8123
-  #ssl_certificate: /etc/letsencrypt/live/kerry.duckdns.org/fullchain.pem
-  #ssl_key: /etc/letsencrypt/live/kerry.duckdns.org/privkey.pem
+  base_url: !secret duckdns
+  ssl_certificate: !secret sslcert
+  ssl_key: !secret sslkey
   login_attempts_threshold: 3
   #trusted_networks: 192.168.1.1
 
-# Checks for available updates
 updater:
-# Discover some devices automatically
 discovery:
-# Allows you to issue voice commands from the frontend in enabled browsers
-# conversation:
-# Enables support for tracking state changes over time.
 history:
-# View all events in a logbook
 logbook:
 
 # Track the sun
@@ -43,7 +34,7 @@ sun:
 
 weather:
   - platform: openweathermap
-    api_key: af775033b8b45587900e5c138415147f
+    api_key: !secret weatherAPI
     monitored_conditions:
       - weather
       - temperature
@@ -90,7 +81,7 @@ verisure:
 
 notify:
   platform: pushbullet
-  api_key: o.xRgpVmDFNvxtki6jIGiRUaRM5VPhv6Tr
+  api_key: !secret pushbulletAPI
   name: pushbullet
 
 group: !include groups.yaml

@@ -11,9 +11,9 @@ playroom:
   entities:
   - remote.harmony_hub
   - light.hue
-#  - light.huelamp_1_hue_color
-#  - light.huelamp_2_hue_color
-#  - light.huelamp_3_hue_color_lamp_3
+  - light.hue_color_lamp_1
+  - light.hue_color_lamp_2
+  - light.hue_color_lamp_3
   - switch.bas
   - binary_sensor.monstereye_playroom
   - group.playroom_climate
