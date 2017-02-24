@@ -1,73 +1,82 @@
-hemma:
-  view: yes
-  entities:
-  - group.belysning
-  - alarm_control_panel.alarm_1
-  - group.devicetracker
 
-playroom:
-  name: Biorummet
-  view: yes
-  entities:
-  - remote.harmony_hub
-  - light.hue
-  - light.hue_color_lamp_1
-  - light.hue_color_lamp_2
-  - light.hue_color_lamp_3
-  - switch.bas
-  - binary_sensor.monstereye_playroom
-  - group.playroom_climate
+  ### VIEWS
+  hemma:
+    view: yes
+    entities:
+    - group.belysning
+    - alarm_control_panel.alarm_1
+    - group.devicetracker
 
-playroom_climate:
-  name: Klimat
-  view: no
-  entities:
-  - sensor.kallare_temperature
-  - sensor.kallare_humidity
-  - climate.radiator_playroom
+  playroom:
+    name: Biorummet
+    view: yes
+    entities:
+    - remote.harmony_hub
+    - light.hue
+    - light.hue_color_lamp_1
+    - light.hue_color_lamp_2
+    - light.hue_color_lamp_3
+    - group.bioljud
+    - binary_sensor.monstereye_playroom
+    - group.playroom_climate
 
-livingroom_climate:
-  name: Klimat
-  view: no
-  entities:
-  - sensor.vardagsrum_temperature
-  - sensor.vardagsrum_humidity
+  kitchen:
+    view: yes
+    name: Köket
+    entities:
+      - switch.kaffebryggare
+      - media_player.kok
 
-kitchen:
-  view: yes
-  name: Köket
-  entities:
-    - switch.kaffe
-    - media_player.kok
+  bedroom:
+    view: yes
+    name: Sovrummet
+    entities:
+    - switch.kerrys_sangbord
+    - switch.byran_sovrum
 
-bedroom:
-  view: yes
-  name: Sovrummet
-  entities:
-  - switch.kerrys_sangbord
-  - switch.byran_sovrum
+  livingroom:
+    view: yes
+    name: Vardagsrum
+    entities:
+    - media_player.vardagsrum
+    - group.livingroom_climate
 
-livingroom:
-  view: yes
-  name: Vardagsrum
-  entities:
-  - media_player.vardagsrum
-  - group.livingroom_climate
+  ### GROUPS
 
-belysning:
-  view: no
-  entities:
-  - switch.kortsidan_matrum
-  - switch.lampa_hallen
-  - switch.lampa_vid_trappan
-  - switch.mot_fonstret
-  - switch.mot_gatan_matrum
-  - switch.mot_gatan_vardagsrum
+  playroom_climate:
+    name: Klimat
+    view: no
+    entities:
+    - sensor.kallare_temperature
+    - sensor.kallare_humidity
+    - climate.radiator_playroom
 
-devicetracker:
-  view: no
-  entities:
-  - device_tracker.iphone
-  - device_tracker.kerrysiphone2
-  - device_tracker.mariefogsiphone
-  - device_tracker.ollesiphone2
+  livingroom_climate:
+    name: Klimat
+    view: no
+    entities:
+    - sensor.vardagsrum_temperature
+    - sensor.vardagsrum_humidity
+
+  belysning:
+    view: no
+    entities:
+    - switch.kortsidan_matrum
+    - switch.lampa_hallen
+    - switch.lampa_vid_trappan
+    - switch.mot_fonstret
+    - switch.mot_gatan_matrum
+    - switch.mot_gatan_vardagsrum
+
+  devicetracker:
+    view: no
+    entities:
+    - device_tracker.iphone
+    - device_tracker.kerrysiphone2
+    - device_tracker.mariefogsiphone
+    - device_tracker.ollesiphone2
+
+  bioljud:
+    view: no
+    entities:
+    - switch.bas

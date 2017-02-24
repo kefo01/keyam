@@ -1,0 +1,8 @@
+
+    switch.bas:
+      friendly_name: Basljud
+      icon: mdi:speaker-wireless
+
+    switch.kaffebryggare:
+      friendly_name: Kaffebryggaren
+      icon: mdi:coffee
