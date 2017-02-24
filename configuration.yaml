@@ -23,12 +23,15 @@ history:
 logbook:
 sun:
 
-weather:
-  - platform: openweathermap
-    api_key: !secret weatherAPI
-    monitored_conditions:
-      - weather
-      - temperature
+sensor:
+- platform: darksky
+  api_key: !secret darkskyAPI
+  monitored_conditions:
+    - summary
+    - cloud_cover
+    - temperature
+  update_inverval: '00:10'
+  forecast: 
 
 # Text to speech
 tts:
@@ -75,6 +78,16 @@ notify:
   api_key: !secret pushbulletAPI
   name: pushbullet
 
+media_player:
+  - platform: kodi
+    host: 192.168.1.100
+  - platform: denon
+    host: 192.168.1.240
+  - platform: samsungtv
+    host: 192.168.1.24
+    mac: 14:BB:6E:18:2D:E5
+    name: Samsung TV
+    port: 8001
 
 group: !include groups.yaml
 

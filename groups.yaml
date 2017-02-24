@@ -1,11 +1,15 @@
 
-  ### VIEWS
-  hemma:
+  ### VIEWS ##########
+  default_view:
     view: yes
     entities:
     - group.belysning
     - alarm_control_panel.alarm_1
     - group.devicetracker
+    - group.sonos
+    - group.basement
+    - group.dark_weather
+    - group.larmstatus
 
   playroom:
     name: Biorummet
@@ -19,6 +23,10 @@
     - group.bioljud
     - binary_sensor.monstereye_playroom
     - group.playroom_climate
+    - configurator.philips_hue
+    - media_player.kodi
+    - input_select.playroom_hub
+    - media_player.marantz_sr7011
 
   kitchen:
     view: yes
@@ -40,8 +48,32 @@
     entities:
     - media_player.vardagsrum
     - group.livingroom_climate
+    - switch.verisurevardagsrum
+    - media_player.samsung_tv
 
-  ### GROUPS
+  olle:
+    view: yes
+    name: olle
+    entities:
+    - light.rgbw_bulb
+
+  ovrehall:
+    view: yes
+    name: Övre hallen
+    entities:
+    - media_player.hall
+    - group.ovrehall_climate
+    - switch.lampa_hallen
+
+  entre:
+    view: yes
+    name: Entre
+    entities:
+    - sensor.hall_temperature
+
+
+
+  ### GROUPS ##########
 
   playroom_climate:
     name: Klimat
@@ -58,7 +90,15 @@
     - sensor.vardagsrum_temperature
     - sensor.vardagsrum_humidity
 
+  ovrehall_climate:
+    name: Klimat
+    view: no
+    entities:
+    - sensor.hall_overvaning_temperature
+    - sensor.hall_overvaning_humidity
+
   belysning:
+    name: Belysning
     view: no
     entities:
     - switch.kortsidan_matrum
@@ -70,6 +110,7 @@
 
   devicetracker:
     view: no
+    name: Vem är hemma?
     entities:
     - device_tracker.iphone
     - device_tracker.kerrysiphone2
@@ -77,6 +118,37 @@
     - device_tracker.ollesiphone2
 
   bioljud:
+    name: Bio
     view: no
     entities:
     - switch.bas
+    - switch.playstation
+
+  sonos:
+    name: Sonos
+    view: no
+    entities:
+    - media_player.vardagsrum
+    - media_player.kok
+    - media_player.hall
+
+  basement:
+    name: Källaren
+    view: no
+    entities:
+    - light.kallare_mellanhall
+    - climate.radiator_tvattstuga
+
+  dark_weather:
+    name: Väder
+    view: no
+    entities:
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_cloud_coverage
+    - sensor.dark_sky_temperature
+
+  larmstatus:
+    name: Larm
+    view: no
+    entities:
+    - alarm_control_panel.alarm_1
