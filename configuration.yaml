@@ -23,15 +23,7 @@ history:
 logbook:
 sun:
 
-sensor:
-- platform: darksky
-  api_key: !secret darkskyAPI
-  monitored_conditions:
-    - summary
-    - cloud_cover
-    - temperature
-  update_inverval: '00:10'
-  forecast: 
+sensor: !include sensors.yaml
 
 # Text to speech
 tts:
@@ -89,19 +81,17 @@ media_player:
     name: Samsung TV
     port: 8001
 
-group: !include groups.yaml
-
 input_select:
-  playroom_hub:
-    name: Playroom Hub
+  harmony:
+    name: Fjärr
     options:
-      - Powered Off
-      - Play PS4
-      - Play PS3
-      - Film
-    initial: Powered Off
+    - Powered Off
+    - Film
+    - Play PS4
+    - Play PS3
+    - Select input
+    initial: Select input
     icon: mdi:monitor
 
-#customize:
-#  - entity_id: sensor.vardagsrum_humidity
-#    icon: mdi:water-percent
+automation: !include automation.yaml
+group: !include groups.yaml

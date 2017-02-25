@@ -1,0 +1,17 @@
+
+
+  alias: "Start activity from input select"
+  sequence:
+    - service: remote.turn_on
+      data_template:
+        entity_id: remote.hh_basment
+        activity: >
+          {% if is_state("input_select.hh_basment", "PowerOff") %}
+              -1
+          {% elif is_state("input_select.hh_basment", "Film") %}
+              24547643
+          {% elif is_state("input_select.hh_basment", "Play PS4") %}
+              24551019
+          {% elif is_state("input_select.hh_basment", "Play PS3") %}
+              24547899
+          {% endif %}

@@ -1,0 +1,14 @@
+- platform: darksky
+  api_key: !secret darkskyAPI
+  monitored_conditions:
+    - summary
+    - cloud_cover
+    - temperature
+  update_inverval: '01:00'
+  forecast:
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /home
+    - type: memory_free
+    - type: load_5m

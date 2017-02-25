@@ -15,7 +15,8 @@
     name: Biorummet
     view: yes
     entities:
-    - remote.harmony_hub
+    - group.harmony
+    - input_select.hh_basment
     - light.hue
     - light.hue_color_lamp_1
     - light.hue_color_lamp_2
@@ -25,7 +26,6 @@
     - group.playroom_climate
     - configurator.philips_hue
     - media_player.kodi
-    - input_select.playroom_hub
     - media_player.marantz_sr7011
 
   kitchen:
@@ -63,14 +63,20 @@
     entities:
     - media_player.hall
     - group.ovrehall_climate
-    - switch.lampa_hallen
+    - switch.mot_fonstret
 
   entre:
     view: yes
     name: Entre
     entities:
     - sensor.hall_temperature
+    - switch.lampa_hallen
 
+  other:
+    view: yes
+    name: Övrigt
+    entities:
+    - group.computerstatus
 
 
   ### GROUPS ##########
@@ -104,7 +110,6 @@
     - switch.kortsidan_matrum
     - switch.lampa_hallen
     - switch.lampa_vid_trappan
-    - switch.mot_fonstret
     - switch.mot_gatan_matrum
     - switch.mot_gatan_vardagsrum
 
@@ -152,3 +157,17 @@
     view: no
     entities:
     - alarm_control_panel.alarm_1
+
+  computerstatus:
+    name: RPi
+    view: no
+    entities:
+    - sensor.average_load_5m
+    - sensor.ram_free
+    - sensor.disk_use_home
+
+  harmony:
+    name: harmony
+    view: no
+    entities:
+    - input_select.harmony

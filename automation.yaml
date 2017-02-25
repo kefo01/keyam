@@ -1,11 +1,39 @@
-# Example automation
-...
-automation:
+
+- alias: Harmony
+  hide_entity: True
   trigger:
     platform: state
-    entity_id: device_tracker.sweetheart
-    from: 'not_home'
-    to: 'home'
+    entity_id: input_select.harmony
+    from: 'Select Input'
   action:
-    service: scene.turn_on
-    entity_id: scene.romantic
+    - service: remote.turn_on
+      entity_id: remote.living_room
+      data_template:
+        activity: >
+          {% if is_state("input_select.harmony", "PowerOff") %}
+            -1
+          {% elif is_state("input_select.harmony", "Film") %}
+            24547643
+          {% elif is_state("input_select.harmony", "PS4") %}
+            24551019
+          {% elif is_state("input_select.harmony", "PS3") %}
+            24547899
+          {% endif %}
+    - service: input_select.select_option
+      entity_id: input_select.harmony
+      data_template:
+        option: "Select Input"
+
+- alias: Harmony Off
+  hide_entity: True
+  trigger:
+    platform: state
+    entity_id: input_select.harmony
+    to: 'Power Off'
+  action:
+    - service: remote.turn_off
+      entity_id: remote.living_room
+    - service: input_select.select_option
+      entity_id: input_select.harmony
+      data_template:
+        option: "Select Input"
