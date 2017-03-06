@@ -1,28 +1,28 @@
-
 - alias: Harmony
   hide_entity: True
   trigger:
     platform: state
     entity_id: input_select.harmony
-    from: 'Select Input'
+    from: 'Select a Activity'
   action:
     - service: remote.turn_on
-      entity_id: remote.living_room
+      entity_id: remote.logitech_harmony
       data_template:
         activity: >
-          {% if is_state("input_select.harmony", "PowerOff") %}
-            -1
+          {% if is_state("input_select.harmony", "Power Off") %}
+             -1
           {% elif is_state("input_select.harmony", "Film") %}
             24547643
           {% elif is_state("input_select.harmony", "PS4") %}
             24551019
           {% elif is_state("input_select.harmony", "PS3") %}
             24547899
+          {% else %}
           {% endif %}
     - service: input_select.select_option
       entity_id: input_select.harmony
       data_template:
-        option: "Select Input"
+        option: "Select a Activity"
 
 - alias: Harmony Off
   hide_entity: True
@@ -32,8 +32,8 @@
     to: 'Power Off'
   action:
     - service: remote.turn_off
-      entity_id: remote.living_room
+      entity_id: remote.logitech_harmony
     - service: input_select.select_option
       entity_id: input_select.harmony
       data_template:
-        option: "Select Input"
+        option: "Select a Activity"

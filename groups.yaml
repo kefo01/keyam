@@ -6,8 +6,6 @@
     - group.belysning
     - alarm_control_panel.alarm_1
     - group.devicetracker
-    - group.sonos
-    - group.basement
     - group.dark_weather
     - group.larmstatus
 
@@ -71,6 +69,12 @@
     entities:
     - sensor.hall_temperature
     - switch.lampa_hallen
+
+  washroom:
+    view: yes
+    name: Tvättstugan
+    entities:
+    - group.basement
 
   other:
     view: yes

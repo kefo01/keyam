@@ -50,7 +50,7 @@ device_tracker:
 
 remote:
   - platform: harmony
-    name: hh_basment
+    name: logitech_harmony
     host: !secret harmonyIP
     port: 5222
     username: !secret email
@@ -83,14 +83,13 @@ media_player:
 
 input_select:
   harmony:
-    name: Fjärr
+    name: Harmony Control
     options:
-    - Powered Off
+    - Select Input
+    - Power Off
     - Film
     - Play PS4
     - Play PS3
-    - Select input
-    initial: Select input
     icon: mdi:monitor
 
 automation: !include automation.yaml

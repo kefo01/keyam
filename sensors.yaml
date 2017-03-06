@@ -12,3 +12,8 @@
       arg: /home
     - type: memory_free
     - type: load_5m
+- platform: template
+  sensors:
+    current_activity:
+      friendly_name: 'Current Activity'
+      value_template: '{{ states.remote.logitech_harmony.attributes.current_activity }}'
