@@ -18,12 +18,18 @@ http:
   #trusted_networks: 192.168.1.1
 
 updater:
-discovery:
-history:
-logbook:
-sun:
 
-sensor: !include sensors.yaml
+discovery:
+  ignore:
+    - samsung_tv
+
+history:
+
+logbook:
+
+config:
+
+sun:
 
 # Text to speech
 tts:
@@ -31,12 +37,18 @@ tts:
 
 vera:
   vera_controller_url: !secret veraIP
-  exclude: [ 111, 112, 113 ]
+  exclude: [ 108, 111, 112, 113 ]
 
 light:
   platform: hue
   host: 192.168.1.9
   allow_unreachable: true
+
+mqtt:
+  broker: !secret CLOUTMQTT_SERVER
+  port: !secret CLOUDMQTT_PORT
+  username: !secret CLOUDMQTT_USER
+  password: !secret CLOUDMQTT_PASSWORD
 
 device_tracker:
   - platform: asuswrt
@@ -47,6 +59,11 @@ device_tracker:
     consider_home: 180
     track_new_devices: false
     protocol: telnet
+  - platform: owntracks
+    max_gps_accuracy: 200
+    waypoints: True
+    waypoint_whitelist:
+      - kerry
 
 remote:
   - platform: harmony
@@ -70,27 +87,40 @@ notify:
   api_key: !secret pushbulletAPI
   name: pushbullet
 
-media_player:
-  - platform: kodi
-    host: 192.168.1.100
-  - platform: denon
-    host: 192.168.1.240
-  - platform: samsungtv
-    host: 192.168.1.24
-    mac: 14:BB:6E:18:2D:E5
-    name: Samsung TV
-    port: 8001
-
 input_select:
-  harmony:
-    name: Harmony Control
-    options:
-    - Select Input
-    - Power Off
-    - Film
-    - Play PS4
-    - Play PS3
-    icon: mdi:monitor
+     harmony:
+       name: Harmony Control
+       options:
+        - Select a Activity
+        - Power Off
+        - Watch Movie
+        - Play Wii
+        - Play PS4
+       icon: mdi:monitor
 
+zone:
+  name: Hemma
+  latitude: !secret zone_lat
+  longitude: 18.105791
+  radius: 20
+  icon: mdi:home
+
+zone 2:
+  name: Ooyala
+  latitude: !secret zone2_lat
+  longitude: 18.033360
+  radius: 150
+  icon: mdi:work
+
+zone 3:
+  name: Skolan
+  latitude: !secret zone3_lat
+  longitude: 18.113451
+  radius: 150
+  icon: mdi:school
+
+
+sensor: !include sensors.yaml
+media_player: !include mediaplayers.yaml
 automation: !include automation.yaml
 group: !include groups.yaml

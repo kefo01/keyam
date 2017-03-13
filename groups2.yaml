@@ -5,10 +5,8 @@
     entities:
     - group.dark_weather
     - group.belysning
-    - group.devicetracker_asus
+    - group.devicetracker
     - group.larmstatus
-    - zone.home
-    - device_tracker.owntracks
 
   playroom:
     name: Biorummet
@@ -118,7 +116,7 @@
     - switch.mot_gatan_matrum
     - switch.mot_gatan_vardagsrum
 
-  devicetracker_asus:
+  devicetracker:
     view: no
     name: Vem är hemma?
     entities:

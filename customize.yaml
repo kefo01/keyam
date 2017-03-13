@@ -2,49 +2,35 @@
     switch.bas:
       friendly_name: Basljud
       icon: mdi:speaker-wireless
-
     switch.playstation:
       friendly_name: Fläkt
       icon: mdi:fan
-
     switch.kaffebryggare:
       friendly_name: Kaffebryggaren
       icon: mdi:coffee
-
     climate.radiator_playroom:
       friendly_name: Element biorum
       icon: mdi:radiator
-
     switch.verisurevardagsrum:
       friendly_name: Smartplug
-
     light.rgbw_bulb:
       friendly_name: Skrivbordslampa
-
     climate.radiator_tvattstuga:
       friendly_name: Element tvättstuga
       icon: mdi:radiator
-
     alarm_control_panel.alarm_1:
       friendly_name: Larmstatus
-
     device_tracker.kerrysiphone2:
       friendly_name: Kerry
-
     device_tracker.iphone:
       friendly_name: Erik
-
     device_tracker.mariefogsiphone:
       friendly_name: Marie
-
     device_tracker.ollesiphone2:
       friendly_name: Olle
-
     sensor.dark_sky_summary:
       friendly_name: Summering
-
     sensor.dark_sky_cloud_coverage:
       friendly_name: Molnighet
-
     sensor.dark_sky_temperature:
       friendly_name: Temperatur

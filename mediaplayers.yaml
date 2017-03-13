@@ -1,0 +1,9 @@
+- platform: kodi
+  host: 192.168.1.100
+- platform: denon
+  host: 192.168.1.240
+- platform: samsungtv
+  host: 192.168.1.24
+  name: Samsung TV
+  port: 8001
+  mac: E8:50:8B:97:D0:E4

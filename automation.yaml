@@ -11,12 +11,12 @@
         activity: >
           {% if is_state("input_select.harmony", "Power Off") %}
              -1
-          {% elif is_state("input_select.harmony", "Film") %}
+          {% elif is_state("input_select.harmony", "Watch Movie") %}
             24547643
-          {% elif is_state("input_select.harmony", "PS4") %}
-            24551019
-          {% elif is_state("input_select.harmony", "PS3") %}
+          {% elif is_state("input_select.harmony", "Play PS3") %}
             24547899
+          {% elif is_state("input_select.harmony", "Play PS4") %}
+            24551019
           {% else %}
           {% endif %}
     - service: input_select.select_option
