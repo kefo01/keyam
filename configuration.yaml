@@ -25,6 +25,8 @@ discovery:
 
 history:
 
+ios:
+
 logbook:
 
 config:
@@ -63,7 +65,9 @@ device_tracker:
     max_gps_accuracy: 200
     waypoints: True
     waypoint_whitelist:
-      - kerry
+      - Kerry
+      - Marie
+      - Olle
 
 remote:
   - platform: harmony
@@ -118,7 +122,6 @@ zone 3:
   longitude: 18.113451
   radius: 150
   icon: mdi:school
-
 
 sensor: !include sensors.yaml
 media_player: !include mediaplayers.yaml

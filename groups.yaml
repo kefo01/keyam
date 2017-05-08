@@ -2,17 +2,18 @@
   ### VIEWS ##########
   default_view:
     view: yes
+    icon: mdi:home
     entities:
     - group.dark_weather
-    - group.belysning
-    - group.devicetracker_asus
-    - group.larmstatus
-    - zone.home
-    - device_tracker.owntracks
+    - alarm_control_panel.alarm_1
+    - device_tracker.kerry_kerry
+    - device_tracker.olle_olle
+    - group.slackallt
 
   playroom:
     name: Biorummet
     view: yes
+    icon: mdi:theater
     entities:
     - group.harmony
     - input_select.harmony
@@ -20,8 +21,9 @@
     - light.hue_color_lamp_1
     - light.hue_color_lamp_2
     - light.hue_color_lamp_3
+    - light.hue_lightstrip_plus_1
     - group.bioljud
-    - binary_sensor.monstereye_playroom
+    - binary_sensor.monstereye_playroom_86
     - group.playroom_climate
     - configurator.philips_hue
     - media_player.kodi
@@ -30,20 +32,23 @@
   kitchen:
     view: yes
     name: Köket
+    icon: mdi:food
     entities:
-      - switch.kaffebryggare
+      - switch.kaffebryggare_39
       - media_player.kok
 
   bedroom:
     view: yes
     name: Sovrummet
+    icon: mdi:hotel
     entities:
-    - switch.kerrys_sangbord
-    - switch.byran_sovrum
+    - switch.kerrys_sangbord_13
+    - switch.byran_sovrum_45
 
   livingroom:
     view: yes
     name: Vardagsrum
+    icon: mdi:sofa
     entities:
     - media_player.vardagsrum
     - group.livingroom_climate
@@ -54,7 +59,7 @@
     view: yes
     name: olle
     entities:
-    - light.rgbw_bulb
+    - light.rgbw_bulb_48
 
   ovrehall:
     view: yes
@@ -62,7 +67,7 @@
     entities:
     - media_player.hall
     - group.ovrehall_climate
-    - switch.mot_fonstret
+    - switch.mot_fonstret_90
 
   entre:
     view: yes
@@ -82,6 +87,8 @@
     name: Övrigt
     entities:
     - group.computerstatus
+    - group.devicetracker_asus
+    - group.belysning
 
 
   ### GROUPS ##########
@@ -91,8 +98,10 @@
     view: no
     entities:
     - sensor.kallare_temperature
+    - sensor.temperature_sensor_84
     - sensor.kallare_humidity
-    - climate.radiator_playroom
+    - climate.radiator_playroom_83
+    - sensor.3_in_1_sensor_light_1_88
 
   livingroom_climate:
     name: Klimat
@@ -108,15 +117,23 @@
     - sensor.hall_overvaning_temperature
     - sensor.hall_overvaning_humidity
 
+  slackallt:
+    name: Belysning undervåning
+    view: no
+    control: hidden
+    icon: mdi:lightbulb-on
+    entities:
+    - group.belysning
+
   belysning:
-    name: Belysning
+    name: Belysning undervåning
     view: no
     entities:
-    - switch.kortsidan_matrum
-    - switch.lampa_hallen
-    - switch.lampa_vid_trappan
-    - switch.mot_gatan_matrum
-    - switch.mot_gatan_vardagsrum
+    - switch.kortsidan_matrum_34
+    - switch.lampa_hallen_43
+    - switch.lampa_vid_trappan_41
+    - switch.mot_gatan_matrum_89
+    - switch.mot_gatan_vardagsrum_21
 
   devicetracker_asus:
     view: no
@@ -126,13 +143,14 @@
     - device_tracker.kerrysiphone2
     - device_tracker.mariefogsiphone
     - device_tracker.ollesiphone2
+#    - camera.kerrymap
 
   bioljud:
     name: Bio
     view: no
     entities:
-    - switch.bas
-    - switch.playstation
+    - switch.bas_16
+    - switch.playstation_11
 
   sonos:
     name: Sonos
@@ -146,8 +164,8 @@
     name: Källaren
     view: no
     entities:
-    - light.kallare_mellanhall
-    - climate.radiator_tvattstuga
+    - light.kallare_mellanhall_101
+    - climate.radiator_tvattstuga_81
 
   dark_weather:
     name: Väder
